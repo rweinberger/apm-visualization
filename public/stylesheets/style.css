@@ -1,0 +1,30 @@
+body {
+  font-family: Helvetica;
+  font-size: 10pt;
+}
+
+#header {
+  margin: 50px;
+}
+
+.topology {
+  width: 500px;
+  margin: 50px;
+  margin-top: 0px;
+  padding: 50px;
+  border: solid 1px #ccc;
+}
+
+.server {
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  background-color: #e6e6e6;
+  padding: 20px;
+  margin: 20px;
+}
+
+#reactgooglegraph-1 {
+  margin: 50px;
+  margin-bottom: 0px;
+}
