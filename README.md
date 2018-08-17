@@ -2,8 +2,6 @@
 
 GUI for developers to visualize output of MongoDB APM logs. Example log file is found in the root directory.
 
-To start:
-
 ### `npm start`
 
 Runs the app in the development mode.<br>

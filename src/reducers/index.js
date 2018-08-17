@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 
+// each topology action pushes a new topology snapshot to the state
 function topologies(
   state = [{
     timestamp: 0,
@@ -45,6 +46,7 @@ function topologies(
   }
 }
 
+// each command action updates the state.allCommands map, which maps command requestIds to command info
 function commands(state = {
     client: null,
     allCommands: {}
@@ -76,6 +78,7 @@ function commands(state = {
   }
 }
 
+// set displayTime
 function displayTime(state = 'MOST_RECENT', action) {
   switch (action.type) {
     case 'SET_DISPLAY_TIME':
@@ -85,6 +88,7 @@ function displayTime(state = 'MOST_RECENT', action) {
   }
 }
 
+// set min/max timestamps
 function timestamps(state = { min: null, max: null }, action) {
   switch (action.type) {
     case 'SET_MIN_TIMESTAMP':

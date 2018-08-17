@@ -28,6 +28,7 @@ function getLogData(logArray) {
   );
 }
 
+// example log file; later, this should be supplied by the user
 const sampleLogFile = [
   `{"timestamp":1534490110118,"category":"sdam","name":"topologyOpening","object":{"topologyId":2}}`,
   `{"timestamp":1534490110119,"category":"sdam","name":"serverOpening","object":{"topologyId":2,"address":"localhost:27017"}}`,
@@ -56,9 +57,11 @@ const data = getLogData(sampleLogFile);
 const minTimestamp = EJSON.parse(sampleLogFile[0], { strict: false }).timestamp;
 const maxTimestamp = EJSON.parse(sampleLogFile[sampleLogFile.length - 1], { strict: false }).timestamp;
 
+// set min and max timestamps
 store.dispatch(setMinTimestamp(minTimestamp))
 store.dispatch(setMaxTimestamp(maxTimestamp))
 
+// dispatch all sdam-related actions
 data.sdam.forEach(event => {
   const timestamp = event.timestamp;
   switch (event.name) {
@@ -78,6 +81,7 @@ data.sdam.forEach(event => {
   }
 })
 
+// dispatch all command-related actions
 data.command.forEach(event => {
   const timestamp = event.timestamp;
   const requestId = event.object.requestId;

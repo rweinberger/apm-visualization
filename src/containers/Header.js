@@ -12,7 +12,7 @@ const Header = ({ time }) => {
 const mapStateToProps = state => {
   const time = typeof state.displayTime === 'number' 
     ? state.displayTime 
-    : state.topologies[state.topologies.length - 1].timestamp
+    : state.timestamps.max
   return { time: time }
 }
 
